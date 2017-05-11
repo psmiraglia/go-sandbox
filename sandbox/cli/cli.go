@@ -1,7 +1,7 @@
 package cli
 
 import (
-	"github.com/psmiraglia/sandbox/common"
+	"github.com/psmiraglia/go-sandbox/sandbox/common"
 	"github.com/urfave/cli"
 	"os"
 )
