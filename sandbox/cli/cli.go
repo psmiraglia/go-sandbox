@@ -13,5 +13,15 @@ func Run() {
 	app.Email = "paolo.smiraglia@gmail.com"
 	app.Usage = "My Sandbox application"
 	app.Version = common.Version()
+
+	app.Commands = []cli.Command {
+		{
+			Name:   "doit",
+			Usage:  "Let's do it!",
+			Action: func(c *cli.Context) {
+				doit()
+			},
+		},
+	}
 	app.Run(os.Args)
 }
