@@ -19,4 +19,3 @@ It's time to add Go language to my skillset...
 *   [Go Language](https://golang.org/)
 *   [sirupsen/logrus](https://github.com/sirupsen/logrus)
 *   [urfave/cli](https://github.com/urfave/cli)
-
