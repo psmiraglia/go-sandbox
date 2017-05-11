@@ -1,7 +1,6 @@
 package common
 
 import (
-	//"github.com/psmiraglia/go-sandbox/sandbox/common"
 	"github.com/sirupsen/logrus"
 	"time"
 )
@@ -14,6 +13,7 @@ func init() {
 		},
 	})
 	logrus.SetLevel(logrus.DebugLevel)
+	logrus.AddHook(NewMyHook())
 }
 
 var Log = logrus.WithFields(logrus.Fields{
