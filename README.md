@@ -2,10 +2,12 @@
 
 It's time to add Go language to my skillset...
 
-## Install dependencies
+## Play with my sandbox
 
-    $ go get github.com/urfave/cli
+    $ go get github.com/psmiraglia/go-sandbox/sandbox
 
 ## References
 
-*   [Go](https://golang.org/)
+*   [Go Language](https://golang.org/)
+*   [sirupsen/logrus](https://github.com/sirupsen/logrus)
+*   [urfave/cli](https://github.com/urfave/cli)
