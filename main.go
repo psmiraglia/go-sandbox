@@ -1,11 +1,9 @@
 package main
 
 import (
-	"fmt"
-	"github.com/psmiraglia/sandbox/common"
+	"github.com/psmiraglia/sandbox/cli"
 )
 
 func main() {
-	fmt.Println(common.Version())
-	fmt.Println(common.NamedVersion())
+	cli.Run()
 }
