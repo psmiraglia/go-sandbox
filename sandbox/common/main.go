@@ -3,7 +3,7 @@ package common
 
 import (
 	"path/filepath"
-    "os"
+	"os"
 )
 
 // It stores the application name.

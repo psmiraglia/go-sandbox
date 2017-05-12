@@ -22,41 +22,41 @@ func init() {
 }
 
 func ParseLogLevel() logrus.Level {
-    switch level := config.GetString("log.level"); level {
-        case "debug":
-            return logrus.DebugLevel
-        case "info":
-            return logrus.InfoLevel
+	switch level := config.GetString("log.level"); level {
+		case "debug":
+			return logrus.DebugLevel
+		case "info":
+			return logrus.InfoLevel
 		case "warn":
 			return logrus.WarnLevel
 		case "error":
 			return logrus.ErrorLevel
 		case "fatal":
 			return logrus.FatalLevel
-        default:
-            return logrus.InfoLevel
-    }
+		default:
+			return logrus.InfoLevel
+	}
 }
 
 func ParseLogFormat() logrus.Formatter {
-    switch format := config.GetString("log.format"); format {
-        case "json":
-            return &logrus.JSONFormatter {
+	switch format := config.GetString("log.format"); format {
+		case "json":
+			return &logrus.JSONFormatter {
 				TimestampFormat: common.TimestampFormat,
 				FieldMap: logrus.FieldMap {
 					logrus.FieldKeyTime: "@timestamp",
 					logrus.FieldKeyMsg:  "message",
 				},
-            }
+			}
 		case "text":
 			return &logrus.TextFormatter {
 				TimestampFormat: common.TimestampFormat,
-                FullTimestamp: true,
-            }
-        default:
-            return &logrus.TextFormatter {
+				FullTimestamp: true,
+			}
+		default:
+			return &logrus.TextFormatter {
 				TimestampFormat: common.TimestampFormat,
-                FullTimestamp: true,
-            }
-    }
+				FullTimestamp: true,
+			}
+	}
 }

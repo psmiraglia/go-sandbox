@@ -9,7 +9,7 @@ import (
 
 func init() {
 	// set output format from config file
-    logrus.SetFormatter(config.ParseLogFormat())
+	logrus.SetFormatter(config.ParseLogFormat())
 	// set level from config file
 	logrus.SetLevel(config.ParseLogLevel())
 	logrus.SetOutput(os.Stdout)
