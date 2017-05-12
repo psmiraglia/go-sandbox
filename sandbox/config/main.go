@@ -4,7 +4,7 @@ import (
 	"github.com/psmiraglia/go-sandbox/sandbox/common"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
-    "fmt"
+	"fmt"
 )
 
 var config = viper.New()
