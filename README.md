@@ -7,7 +7,7 @@ It's time to add Go language to my skillset...
     $ go get github.com/psmiraglia/go-sandbox/sandbox
     $ cd $GOPATH/src/github.com/psmiraglia/go-sandbox/sandbox
     $ make build
-    $ ./sanbox doit 2>&1 | jq .
+    $ ./sanbox doit | jq .
     {
       "@build": "2017/05/11T19:28:54",
       "@commit": "b47da0d8",
