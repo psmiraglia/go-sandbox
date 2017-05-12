@@ -7,9 +7,7 @@ import (
 	"io"
 )
 
-type myHook struct {
-    // None
-}
+type myHook struct {}
 
 func NewMyHook() *myHook {
 	return &myHook{}
