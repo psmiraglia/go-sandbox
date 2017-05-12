@@ -1,10 +1,10 @@
 package cli
 
 import (
-	"github.com/psmiraglia/go-sandbox/sandbox/common"
+	"github.com/psmiraglia/go-sandbox/sandbox/logging"
 )
 
-var log = common.Log
+var log = logging.Log
 
 func doit() {
 	log.Debug("Hello! This is Debug...")

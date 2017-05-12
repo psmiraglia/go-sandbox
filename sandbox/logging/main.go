@@ -1,7 +1,8 @@
-package common
+package logging
 
 import (
 	"github.com/sirupsen/logrus"
+	"github.com/psmiraglia/go-sandbox/sandbox/version"
 	"time"
 )
 
@@ -17,7 +18,7 @@ func init() {
 }
 
 var Log = logrus.WithFields(logrus.Fields{
-	"@build": Build,
-	"@commit": Commit,
+	"@build": version.Build,
+	"@commit": version.Commit,
 	"@version": 1,
 })
