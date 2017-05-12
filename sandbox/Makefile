@@ -1,4 +1,4 @@
-BUILD=`date +%Y/%m/%dT%H:%M:%S`
+BUILD=`date +%Y-%m-%dT%H:%M:%S`
 COMMIT=`git rev-parse HEAD | cut -c1-8`
 LDFLAGS=-ldflags "                                                           \
 	-X github.com/psmiraglia/go-sandbox/sandbox/version.Build=${BUILD}       \

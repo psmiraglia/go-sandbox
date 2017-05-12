@@ -1,10 +1,10 @@
 package logging
 
 import (
-	"crypto/sha256"
+	"crypto/sha512"
+	"github.com/psmiraglia/go-sandbox/sandbox/common"
 	"github.com/sirupsen/logrus"
 	"io"
-	"time"
 )
 
 type myHook struct {
@@ -16,9 +16,9 @@ func NewMyHook() *myHook {
 }
 
 func (hook *myHook) Fire(e *logrus.Entry) error {
-	hash := sha256.New()
+	hash := sha512.New()
 	io.WriteString(hash, e.Message)
-	io.WriteString(hash, e.Time.Format(time.RFC3339Nano))
+	io.WriteString(hash, e.Time.Format(common.TimestampFormat))
 	e.Data["hash"] = hash.Sum(nil)
 	return nil
 }

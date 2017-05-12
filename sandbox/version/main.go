@@ -2,8 +2,7 @@ package version
 
 import (
 	"fmt"
-	"os"
-	"path/filepath"
+	"github.com/psmiraglia/go-sandbox/sandbox/common"
 )
 
 var (
@@ -35,6 +34,6 @@ func Version() string {
 func NamedVersion() string {
 	return fmt.Sprintf(
 		"%s-%s",
-		filepath.Base(os.Args[0]), Version(),
+		common.Name, Version(),
 	)
 }
