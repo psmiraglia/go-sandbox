@@ -1,21 +1,17 @@
 package logging
 
 import (
-	"github.com/psmiraglia/go-sandbox/sandbox/common"
+	"github.com/psmiraglia/go-sandbox/sandbox/config"
 	"github.com/psmiraglia/go-sandbox/sandbox/version"
 	"github.com/sirupsen/logrus"
 	"os"
 )
 
 func init() {
-	logrus.SetFormatter(&logrus.JSONFormatter{
-		TimestampFormat: common.TimestampFormat,
-		FieldMap: logrus.FieldMap {
-			logrus.FieldKeyTime: "@timestamp",
-            logrus.FieldKeyMsg:  "message",
-		},
-	})
-	logrus.SetLevel(logrus.DebugLevel)
+	// set output format from config file
+    logrus.SetFormatter(config.ParseLogFormat())
+	// set level from config file
+	logrus.SetLevel(config.ParseLogLevel())
 	logrus.SetOutput(os.Stdout)
 	logrus.AddHook(NewMyHook())
 }
@@ -27,7 +23,6 @@ func init() {
 //  ...
 //  log.Info("This is a info entry")
 var Log = logrus.WithFields(logrus.Fields{
-	"build":    version.Build,
-	"commit":   version.Commit,
-	"@version": 1,
+	"build":  version.Build,
+	"commit": version.Commit,
 })

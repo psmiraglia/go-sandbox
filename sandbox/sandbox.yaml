@@ -1,0 +1,8 @@
+# Setup application logging
+log:
+    # accepted values: debug, info, warn, error, fatal
+    # default: info
+    level: error
+    # accepted values: json, text
+    # default: text
+    format: json

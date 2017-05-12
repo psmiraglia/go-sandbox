@@ -58,6 +58,5 @@ It's time to add Go language to my skillset...
 
 *   [Go Language](https://golang.org/)
 *   [sirupsen/logrus](https://github.com/sirupsen/logrus)
+*   [spf13/viper](https://github.com/spf13/viper)
 *   [urfave/cli](https://github.com/urfave/cli)
-
-

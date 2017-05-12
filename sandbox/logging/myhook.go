@@ -2,6 +2,7 @@ package logging
 
 import (
 	"crypto/sha512"
+	"encoding/base64"
 	"github.com/psmiraglia/go-sandbox/sandbox/common"
 	"github.com/sirupsen/logrus"
 	"io"
@@ -17,7 +18,7 @@ func (hook *myHook) Fire(e *logrus.Entry) error {
 	hash := sha512.New()
 	io.WriteString(hash, e.Message)
 	io.WriteString(hash, e.Time.Format(common.TimestampFormat))
-	e.Data["hash"] = hash.Sum(nil)
+	e.Data["hash"] = base64.StdEncoding.EncodeToString(hash.Sum(nil))
 	return nil
 }
 
