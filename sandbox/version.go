@@ -1,8 +1,7 @@
-package version
+package sandbox
 
 import (
 	"fmt"
-	"github.com/psmiraglia/go-sandbox/sandbox/common"
 )
 
 var (
@@ -13,27 +12,20 @@ var (
 )
 
 var (
-	Build = ""
-	Commit = ""
+	build = ""
+	commit = ""
 )
 
 func Version() string {
 	if len(release) > 0 {
 		return fmt.Sprintf(
 			"%d.%d.%d_%s (build:%s, commit:%s)",
-			major, minor, patch, release, Build, Commit,
+			major, minor, patch, release, build, commit,
 		)
 	} else {
 		return fmt.Sprintf(
 			"%d.%d.%d (build:%s, commit:%s)",
-			major, minor, patch, Build, Commit,
+			major, minor, patch, build, commit,
 		)
 	}
-}
-
-func NamedVersion() string {
-	return fmt.Sprintf(
-		"%s-%s",
-		common.Name, Version(),
-	)
 }
