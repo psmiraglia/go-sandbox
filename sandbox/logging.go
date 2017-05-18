@@ -1,11 +1,14 @@
-package logging
+package sandbox
 
 import (
-	"github.com/psmiraglia/go-sandbox/sandbox/common"
 	"github.com/sirupsen/logrus"
 	"bytes"
+	"crypto/sha512"
+	"encoding/base64"
+	"io"
 )
 
+// MyTextFormatter is...
 type MyTextFormatter struct {
 	// Prefix string according to the log severity.
 	Prefix string
@@ -44,9 +47,38 @@ func (f *MyTextFormatter) Format(e *logrus.Entry) ([]byte, error) {
 	}
 	f.setPrefix(e)
 	b.WriteString(f.Prefix)
-	b.WriteString(e.Time.Format(common.TimestampFormat))
+	b.WriteString(e.Time.Format(TimestampFormat))
 	b.WriteString(" {MYFMT} ")
 	b.WriteString(e.Message)
 	b.WriteByte('\n')
 	return b.Bytes(), nil
+}
+
+// MyHook is...
+type MyHook struct {}
+
+// NewMyHook returns an initialised instance of MyHook.
+func NewMyHook() *MyHook {
+	return &MyHook{}
+}
+
+// Fire returns...
+func (hook *MyHook) Fire(e *logrus.Entry) error {
+	hash := sha512.New()
+	io.WriteString(hash, e.Message)
+	io.WriteString(hash, e.Time.Format(TimestampFormat))
+	e.Data["hash"] = base64.StdEncoding.EncodeToString(hash.Sum(nil))
+	return nil
+}
+
+// Levels returns...
+func (hook *MyHook) Levels() []logrus.Level {
+	return []logrus.Level{
+		logrus.DebugLevel,
+		logrus.InfoLevel,
+		logrus.WarnLevel,
+		logrus.ErrorLevel,
+		logrus.FatalLevel,
+		logrus.PanicLevel,
+	}
 }

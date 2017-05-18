@@ -2,7 +2,7 @@
 log:
     # accepted values: debug, info, warn, error, fatal
     # default: info
-    level: error
+    level: debug
     # accepted values: json, text
     # default: text
-    format: json
+    format: text

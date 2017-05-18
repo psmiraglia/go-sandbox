@@ -1,27 +1,27 @@
-package cli
+package main
 
 import (
-	"github.com/psmiraglia/go-sandbox/sandbox/common"
-	"github.com/psmiraglia/go-sandbox/sandbox/version"
+	"github.com/psmiraglia/go-sandbox/sandbox"
 	"github.com/urfave/cli"
 	"os"
 )
 
-func Run() {
+func main() {
 	app := cli.NewApp()
-	app.Author = "Paolo Smiraglia"
+	app.Authors = []cli.Author{
+		cli.Author{"Paolo Smiraglia", "paolo.smiraglia@gmail.com"},
+		cli.Author{"Alice", "alice@example.com"},
+	}
 	app.Description = "My Sandbox application"
-	app.Email = "paolo.smiraglia@gmail.com"
-	app.Name = common.Name
 	app.Usage = "My Sandbox application"
-	app.Version = version.Version()
+	app.Version = sandbox.Version()
 
 	app.Commands = []cli.Command {
 		{
 			Name:   "doit",
 			Usage:  "Let's do it!",
 			Action: func(c *cli.Context) {
-				doit()
+				sandbox.DoIt()
 			},
 		},
 	}
