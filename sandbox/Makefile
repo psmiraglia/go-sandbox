@@ -1,12 +1,12 @@
 BUILD=`date +%Y-%m-%dT%H:%M:%S`
-COMMIT=`git rev-parse HEAD | cut -c1-8`
+COMMIT=`git rev-parse --short HEAD`
 LDFLAGS=-ldflags "                                                           \
-	-X github.com/psmiraglia/go-sandbox/sandbox/version.Build=${BUILD}       \
-	-X github.com/psmiraglia/go-sandbox/sandbox/version.Commit=${COMMIT}     \
+	-X github.com/psmiraglia/go-sandbox/sandbox.build=${BUILD}       \
+	-X github.com/psmiraglia/go-sandbox/sandbox.commit=${COMMIT}     \
 "
 
 run:
-	go run ${LDFLAGS} main.go
+	go run ${LDFLAGS} cmd/sandbox/main.go
 
 build:
-	go build ${LDFLAGS}
+	go build ${LDFLAGS} cmd/sandbox/main.go
