@@ -6,7 +6,7 @@ LDFLAGS=-ldflags "                                                           \
 "
 
 run:
-	go run ${LDFLAGS} cmd/sandbox/main.go
+	go run ${LDFLAGS} cmd/sandbox/main.go doit
 
 build:
 	go build ${LDFLAGS} cmd/sandbox/main.go

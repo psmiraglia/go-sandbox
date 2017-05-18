@@ -1,12 +1,8 @@
-package cli
+package sandbox
 
-import (
-	"github.com/psmiraglia/go-sandbox/sandbox/logging"
-)
-
-var log = logging.Log
-
-func doit() {
+// DoIt executes the task related to "doit" command.
+func DoIt() {
+	log := Logger
 	log.Debug("Hello! This is Debug...")
 	log.Info("Hello! This is Info...")
 	log.Warning("Hello! This is Warning...")
