@@ -1,3 +1,4 @@
+BINARY=sandbox
 BUILD=`date +%Y-%m-%dT%H:%M:%S`
 COMMIT=`git rev-parse --short HEAD`
 LDFLAGS=-ldflags "                                                           \
@@ -9,4 +10,7 @@ run:
 	go run ${LDFLAGS} cmd/sandbox/main.go doit
 
 build:
-	go build ${LDFLAGS} cmd/sandbox/main.go
+	go build ${LDFLAGS} -o ${BINARY} cmd/sandbox/main.go
+
+install:
+	go install ${LDFLAGS}
